@@ -1,1 +1,1 @@
-# Introduction to Category for AGH SMaDa 2018/19
+# Introduction to Category for AGH SMaDA 2018/19
