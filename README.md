@@ -1,2 +1,1 @@
-# agh-intro-to-ct
-Exercises for Introduction to Category classes on AGH SMaDa
+# Introduction to Category for AGH SMaDa 2018/19
