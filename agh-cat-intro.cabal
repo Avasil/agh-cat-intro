@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 743176de01247ba7dc676f2beee8faefcb916c0332661f197a24192d49bdeb8d
+-- hash: ce1bafe747eaeb1d26082c86d5aee41cb2e86b0ed5c56caa18b2767fb25b7244
 
 name:           agh-cat-intro
 version:        0.1.0.0
@@ -26,6 +26,7 @@ source-repository head
 
 library
   exposed-modules:
+      Lab2
       Lib
   other-modules:
       Paths_agh_cat_intro
@@ -41,7 +42,7 @@ executable agh-cat-intro-exe
       Paths_agh_cat_intro
   hs-source-dirs:
       app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
       agh-cat-intro
     , base >=4.7 && <5
