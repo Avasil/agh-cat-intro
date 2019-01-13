@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ce1bafe747eaeb1d26082c86d5aee41cb2e86b0ed5c56caa18b2767fb25b7244
+-- hash: 3f0d66094c213486157b9e5e84cdd84c624f81e9ac8ff4e2926f9a0914d1cd10
 
 name:           agh-cat-intro
 version:        0.1.0.0
@@ -27,13 +27,16 @@ source-repository head
 library
   exposed-modules:
       Lab2
+      Lab3
       Lib
   other-modules:
       Paths_agh_cat_intro
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      QuickCheck >=2.9 && <2.13
+    , base >=4.7 && <5
+    , containers >=0.5.5.1 && <0.8
   default-language: Haskell2010
 
 executable agh-cat-intro-exe
@@ -44,8 +47,10 @@ executable agh-cat-intro-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
-      agh-cat-intro
+      QuickCheck >=2.9 && <2.13
+    , agh-cat-intro
     , base >=4.7 && <5
+    , containers >=0.5.5.1 && <0.8
   default-language: Haskell2010
 
 test-suite agh-cat-intro-test
@@ -57,6 +62,8 @@ test-suite agh-cat-intro-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      agh-cat-intro
+      QuickCheck >=2.9 && <2.13
+    , agh-cat-intro
     , base >=4.7 && <5
+    , containers >=0.5.5.1 && <0.8
   default-language: Haskell2010
