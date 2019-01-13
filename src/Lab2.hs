@@ -45,7 +45,17 @@ addM _        _        = Nothing
 -- Exercise 1. (Algebraic Data Types + Maybe)
 -- a) Define your own type (`data` keyword) called `Chocolate Cake` 
 --    which can be either `Molten`, `Fudge`, `Red Velvet` or `Ding Dong`
+
+data ChocolateCake = Molten | Fudge | RedVelvet | DingDong deriving Show
 -- b) Write a function `getCake` that accepts a `String` and converts it to `Chocolate Cake`
+
+getCake :: String -> Maybe ChocolateCake
+getCake "Molten"     = Just Molten
+getCake "Fudge"      = Just Fudge
+getCake "Red Velvet" = Just RedVelvet
+getCake "Ding Dong"  = Just DingDong
+getCake _            = Nothing
+
 -- c) Test b) with following inputs:
 --    - getCake "Molten"
 --    - getCake "Apple Pie"
@@ -56,6 +66,9 @@ orders :: [String]
 orders = ["Molten", "Fudge", "Churros", "Red Velvet", "Molten", "Ding Dong", "Bacon"]
 -- d) Take a list of orders defined above and write a function that transforms it to [Chocolate Cake], discarding wrong orders. 
 -- Take a look at http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html for useful functions
+
+d :: [ChocolateCake]
+d = mapMaybe getCake orders
 
 
 
@@ -69,9 +82,10 @@ orders = ["Molten", "Fudge", "Churros", "Red Velvet", "Molten", "Ding Dong", "Ba
 --     | x >= 0 = sqrt x
 --     | otherwise = error "Square root of negative number"
 
-
-
-
+maybeSqrt :: Double -> Maybe Double
+maybeSqrt x
+    | x >= 0    = Just $ sqrt x
+    | otherwise = Nothing
 
 -- Exercise 3. Use `maybeSqrt`, `divideM` with `fmap` / `do notation` to write functions 
 --             computing following equations:

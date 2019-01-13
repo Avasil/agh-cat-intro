@@ -21,9 +21,18 @@ height (Node left _ right) = 1 + max (height left) (height right)
 -- (2) Implement your own version of fmap. Hint: Generalize your first function
 -- (3) Implement (1) in terms of (2)
 
+multIfEven :: [Int] -> [Int]
+multIfEven [] = []
+multIfEven (h:t) = f h : multIfEven t
+    where f h = if even h then h * 2 else h
+
 -- Should work like this:
 -- multIfEven [1, 2, 3, 4]
 -- [1, 4, 3, 8]
+
+myFmap :: (a -> b) -> [a] -> [b]
+myFmap _ [] = []
+myFmap f (h:t) = f h : myFmap f t
 
 -- Exercise 3:
 -- (1) Implement a function that removes capitalized letters from string (without using filter)
@@ -33,6 +42,23 @@ height (Node left _ right) = 1 + max (height left) (height right)
 -- Should work like this:
 -- removeCapitalized "Grzybów było w bród."
 -- "rzybów było w bród."
+
+removeCapitalized :: String -> String
+removeCapitalized [] = []
+removeCapitalized (h:t) = f h ++ removeCapitalized t
+    where f x = if isUpper x then [] else [x]
+
+removeCapitalized' :: String -> String
+removeCapitalized' [] = []
+removeCapitalized' (h:t)
+    | isUpper h = removeCapitalized' t
+    | otherwise = h : removeCapitalized' t
+
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' _ [] = []
+filter' f (h:t)
+    | f h = h : filter' f t
+    | otherwise = filter' f t
 
 -- Exercise 4:
 -- (1) Implement a function that sums all elements in the list (without using fold)
