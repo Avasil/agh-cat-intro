@@ -58,6 +58,7 @@ idempotency a = undefined
 -- functions on IntMap: 
 -- http://hackage.haskell.org/package/containers-0.6.0.1/docs/Data-IntMap-Strict.html
 
+-- https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type#G-Counter_(Grow-only_Counter)
 newtype GCounter = GCounter (IntMap Int) 
     deriving (Arbitrary, Eq, Show)
 
