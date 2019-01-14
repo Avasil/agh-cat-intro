@@ -59,8 +59,9 @@ idempotency a = a `join` a == a
 -- functions on IntMap: 
 -- http://hackage.haskell.org/package/containers-0.6.0.1/docs/Data-IntMap-Strict.html
 
-newtype GCounter = GCounter (IntMap Int)
-   deriving (Arbitrary, Eq, Show)
+-- https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type#G-Counter_(Grow-only_Counter)
+newtype GCounter = GCounter (IntMap Int) 
+    deriving (Arbitrary, Eq, Show)
 
 -- to increment the counter we need to increment counter on given replica's id
 increment :: Int -> GCounter -> GCounter
